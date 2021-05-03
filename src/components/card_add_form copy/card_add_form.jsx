@@ -50,7 +50,7 @@ const CardAddForm = ({ onAdd }) => {
         name="theme"
         placeholder="Theme"
       >
-        <option placeholder="ligth">light</option>
+        <option placeholder="light">light</option>
         <option placeholder="dark">dark</option>
         <option placeholder="colorful">colorful</option>
       </select>
