@@ -8,7 +8,6 @@ import { useHistory } from 'react-router-dom';
 
 const Maker = ({ FileInput, authService, cardRepository }) => {
   const history = useHistory();
-  console.log(history);
   const historyState = history?.location?.state;
   const [cards, setCards] = useState({});
   const [userId, setUserId] = useState(historyState && historyState.id);
@@ -24,7 +23,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       setCards(cards);
     });
     return () => stopSync();
-  }, [userId]);
+  }, [userId, cardRepository]);
 
   useEffect(() => {
     authService //
@@ -35,7 +34,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
           history.push('/');
         }
       });
-  });
+  }, [authService, userId, history]);
 
   const createOrUpdateCard = (card) => {
     setCards((cards) => {
